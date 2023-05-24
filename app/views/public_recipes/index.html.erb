@@ -1,0 +1,32 @@
+  <main>
+
+        <section class="public_section1">
+            <header>
+                <h2>Public Recipes</h2>
+            </header>
+        </section>
+
+        <section class="public_section2">
+            <% @recipes.each do |recipe| %>
+            <article class="public_section2_article">
+                <header class="public_section2_article_header">
+                    <h2><a class="td_none" href="#">Simple Dish</a></h2>
+                    <%= link_to recipe.name, recipe, class: "recipetitle" %>
+                    <p><a class="td_none" href="#">By David</a></p> 
+                     <%= recipe.user.name %>
+                </header>
+
+                <div class="public_section2_article_div">
+                    <h3>Total food Items: 4</h3>
+                    <%= recipe.foods.length %>
+                    <p>Total price: $200</p>
+                    <%= @price %>
+                </div>
+            </article>
+            <% end %>
+        </section>
+        
+    </main>
+
+
+
