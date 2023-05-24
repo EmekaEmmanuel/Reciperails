@@ -3,8 +3,8 @@ class Api::V1::UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all 
-    respond_to do |format| 
+    @users = User.all
+    respond_to do |format|
       format.json { render json: @users, status: 200 }
     end
   end
@@ -15,7 +15,7 @@ class Api::V1::UsersController < ApplicationController
       redirect_to new_user_session_path, notice: 'Sign out succesfully' unless @user
     else
       @user = User.find_by(id: params[:id])
-      respond_to do |format| 
+      respond_to do |format|
         format.json { render json: @user, status: 200 }
       end
     end
@@ -28,4 +28,3 @@ class Api::V1::UsersController < ApplicationController
 
   private :user_params
 end
-

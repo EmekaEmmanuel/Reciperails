@@ -12,7 +12,7 @@ class Api::V1::FoodsController < ApplicationController
   #  GET /foods/1 or /foods/1.json
   def show
     @food = Food.find_by(id: params[:id])
-    respond_to do |format| 
+    respond_to do |format|
       format.json { render json: @food, status: 200 }
     end
   end
@@ -26,9 +26,9 @@ class Api::V1::FoodsController < ApplicationController
     @food = Food.new(food_params)
     @food.user_id = current_user.id
     respond_to do |format|
-      if @food.save 
+      if @food.save
         format.json { render json: @food, status: :created }
-      else 
+      else
         format.json { render json: @food.errors, status: :unprocessable_entity }
       end
     end
@@ -36,9 +36,9 @@ class Api::V1::FoodsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @food.update(food_params) 
+      if @food.update(food_params)
         format.json { render json: @food, status: 200 }
-      else 
+      else
         format.json { render json: @food.errors, status: :unprocessable_entity }
       end
     end
@@ -46,7 +46,7 @@ class Api::V1::FoodsController < ApplicationController
 
   def destroy
     @food.destroy
-    respond_to do |format| 
+    respond_to do |format|
       format.json { head :no_content }
     end
   end

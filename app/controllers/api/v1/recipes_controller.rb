@@ -33,8 +33,8 @@ class Api::V1::RecipesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @recipe.update(recipe_params) 
-        format.json { render json:@recipe, status: :ok}
+      if @recipe.update(recipe_params)
+        format.json { render json: @recipe, status: :ok }
       else
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
