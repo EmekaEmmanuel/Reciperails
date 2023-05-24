@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :show]
+
+  get '/shopping_list', to: 'shopping_list#index', as: 'shopping_list'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -39,6 +41,8 @@ Rails.application.routes.draw do
       end
   
       resources :users, only: [:index, :show]
+
+      get '/shopping_list', to: 'shopping_list#index', as: 'shopping_list'
     end
   end
   

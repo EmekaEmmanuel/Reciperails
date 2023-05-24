@@ -47,8 +47,6 @@ class Api::V1::RecipeFoodsController < ApplicationController
     respond_to do |format| 
       format.json { head :no_content }
     end
-    # flash[:success] = 'Recipe Food deleted successfully.'
-    # redirect_to recipe_path(@recipe_food.recipe_id)
   end
 
   def recipe_food_params
