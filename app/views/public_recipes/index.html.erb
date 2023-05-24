@@ -10,23 +10,25 @@
             <% @recipes.each do |recipe| %>
             <article class="public_section2_article">
                 <header class="public_section2_article_header">
-                    <h2><a class="td_none" href="#">Simple Dish</a></h2>
-                    <%= link_to recipe.name, recipe, class: "recipetitle" %>
-                    <p><a class="td_none" href="#">By David</a></p> 
-                     <%= recipe.user.name %>
+                    <h2><%= link_to recipe.name, recipe, class: "recipetitle" %></h2>
+                    <p><a class="td_none" href="#">By: <%= recipe.user.name %> </a></p> 
                 </header>
 
                 <div class="public_section2_article_div">
-                    <h3>Total food Items: 4</h3>
-                    <%= recipe.foods.length %>
-                    <p>Total price: $200</p>
+                    <h3>Total food Items: <%= @ingredients.where(recipe: recipe).count %></h3>
+                    
+                    <p>Total price: $<%= @ingredients.where(recipe: recipe).map {|value| value.food.price * value.quantity}.sum %></p>
                     <%= @price %>
                 </div>
             </article>
             <% end %>
         </section>
+
         
     </main>
+
+
+ 
 
 
 
