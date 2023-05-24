@@ -63,7 +63,7 @@
                 <% @recipe.recipe_foods.each do |recipeFood|%> 
                     <tr class="active_row custom_row1"> 
                         <th class="custom_font1"><%= recipeFood.food.name%></th>
-                        <th class="custom_font1"><%= recipeFood.quantity %><% recipeFood.food.measurement_unit  %></th>
+                        <th class="custom_font1"><%= recipeFood.quantity %><%= recipeFood.food.measurement_unit  %></th>
                         <th class="custom_font1">$<%= recipeFood.quantity.to_i * recipeFood.food.price %></th>
                         <th class="custom_font1 table_flex1">
                         <button class="custom_btn1"><%=link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id:recipeFood.id), class:"td_none"%></button>
