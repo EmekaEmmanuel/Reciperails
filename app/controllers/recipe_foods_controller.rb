@@ -8,7 +8,7 @@ class RecipeFoodsController < ApplicationController
 
   def create
     @recipe = Recipe.find(params[:recipe_id])
-    @recipe_food = @recipe.recipe_foods.create(recipe_foods_params)
+    @recipe_food = RecipeFood.new(recipe_food_params.merge(recipe_id: @recipe.id))
     if @recipe_food.save
       flash[:notice] = 'Food created sucessfully.'
       redirect_to @recipe
@@ -23,7 +23,7 @@ class RecipeFoodsController < ApplicationController
 
   def update
     @recipe_food = RecipeFood.find(params[:id])
-    if @recipe_food.update(recipe_foods_params)
+    if @recipe_food.update(recipe_food_params)
       flash[:success] = 'Recipe Food updated successfully.'
     else
       flash[:error] = 'Could not add'
@@ -38,9 +38,9 @@ class RecipeFoodsController < ApplicationController
     redirect_to recipe_path(@recipe_food.recipe_id)
   end
 
-  def recipe_foods_params
-    params.require(:recipe_food).permit(:quantity, :recipe_id, :food_id)
+  def recipe_food_params
+    params.require(:recipe_food).permit(:quantity, :food_id)
   end
 
-  private :recipe_foods_params
+  private :recipe_food_params
 end
