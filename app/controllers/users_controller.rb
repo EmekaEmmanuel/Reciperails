@@ -32,7 +32,6 @@ class UsersController < ApplicationController
   private :user_params
 end
 
-
 # DELETE /users/1 or /users/1.json
 # def destroy
 #   @user.destroy
@@ -47,7 +46,6 @@ end
 # def set_user
 #   @user = User.find(params[:id])
 # end
-
 
 # GET /users/new
 # def new

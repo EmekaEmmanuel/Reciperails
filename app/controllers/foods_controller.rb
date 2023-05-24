@@ -69,13 +69,10 @@ class FoodsController < ApplicationController
   private :food_params
 end
 
-
-
 # Use callbacks to share common setup or constraints between actions.
 # def set_food
 #   @food = Food.find(params[:id])
 # end
-
 
 # DELETE /foods/1 or /foods/1.json
 # def destroy
@@ -86,7 +83,6 @@ end
 #     format.json { head :no_content }
 #   end
 # end
-
 
 # PATCH/PUT /foods/1 or /foods/1.json
 # def update
@@ -100,8 +96,6 @@ end
 #     end
 #   end
 # end
-
-
 
 # POST /foods or /foods.json
 # def create

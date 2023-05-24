@@ -61,7 +61,6 @@ class RecipesController < ApplicationController
   private :recipe_params
 end
 
-
 # before_action :set_recipe, only: %i[show edit update destroy]
 
 # GET /recipes/1 or /recipes/1.json
