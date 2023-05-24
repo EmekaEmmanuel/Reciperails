@@ -26,13 +26,24 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :users, only: [:index, :show] do 
-        resources :posts, only: [:index, :show, :new, :create, :destroy] do
-          resources :comments, only: [:index, :new, :create, :destroy] 
-          resources :likes, only: [:index, :create, :destroy]
-        end
-      end
+    resources :recipes
+    
+    resources :recipe_foods
+  
+    resources :public_recipes
+  
+    resources :foods, except: [:update]
+  
+    resources :recipes, only: [:index, :show, :new, :create, :destroy] do
+      resources :recipe_foods, only: [:new, :create, :destroy, :update, :edit]
     end
+  
+    resources :users, only: [:index, :show]
+  end
   end
   
+  
 end
+
+
+
