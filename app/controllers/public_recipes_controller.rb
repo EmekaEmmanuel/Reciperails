@@ -1,7 +1,9 @@
 class PublicRecipesController < ApplicationController
   def index
-    @recipes = Recipe.where(public: true)
-    @price = find_price
+    @recipes = Recipe.where(public: true).includes(:user).order('created_at DESC')
+    @ingredients = RecipeFood.all
+    #@recipes = Recipe.where(public: true)
+    #@price = find_price
   end
 
   def find_price
