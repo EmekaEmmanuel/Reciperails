@@ -1,5 +1,4 @@
-class RecipeFoodsController < ApplicationController
-  load_and_authorize_resource
+class RecipeFoodsController < ApplicationController 
 
   def new
     @recipe = Recipe.find(params[:recipe_id])
@@ -18,6 +17,8 @@ class RecipeFoodsController < ApplicationController
   end
 
   def edit
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe.user_id = current_user.id
     @recipe_food = RecipeFood.find(params[:id])
   end
 
