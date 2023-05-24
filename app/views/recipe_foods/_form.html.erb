@@ -1,5 +1,18 @@
 <h4>Add Recipe Food</h4>
 <%= form_with model: [@recipe, @recipe.recipe_foods.create] do |form|%>
+
+<% if recipe_food.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(recipe_food.errors.count, "error") %> prohibited this recipe_food from being saved:</h2>
+
+      <ul>
+        <% recipe_food.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <div class="">
   <%= form.label :food %>
   <div>
@@ -7,11 +20,6 @@
     include_blank: true} , class:"form-select" %>
   </div>
 </div>
-
- <div>
-    <%= form.label :recipe_id, style: "display: block" %>
-    <%= form.text_field :recipe_id %>
-  </div>
 
 <div class="">
   <%= form.label :quantity %>

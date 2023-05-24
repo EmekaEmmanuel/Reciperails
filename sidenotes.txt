@@ -703,3 +703,34 @@ end
   #   method = "#{resource}_params"
   #   params[resource] &&= send(method) if respond_to?(method, true)
   # end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <div>
+    <%= form.label :recipe_id, style: "display: block" %>
+    <%= form.text_field :recipe_id %>
+  </div>
