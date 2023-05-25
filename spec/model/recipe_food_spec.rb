@@ -1,7 +1,7 @@
 RSpec.describe RecipeFood, type: :model do
   describe 'Test for RecipeFood model' do
-    @user = User.new(name: 'Tekalay', email: 'teklay.com', password: '123456')
-    @food = Food.new(name: 'cake', price: 10, measurement_unit: 'kilogram')
+    @user = User.new(name: 'Teklay', email: 'teklay.com', password: '123456')
+    @food = Food.new(name: 'cake', price: 10, measurement_unit: 'kilogram', quantity: 5)
     @recipe = Recipe.new(user: @user, name: 'meat', description: 'first recipe added to food',
                          preparation_time: '20min', cooking_time: '30min', public: true)
 
