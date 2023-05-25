@@ -31,4 +31,3 @@ class UsersController < ApplicationController
 
   private :user_params
 end
-
