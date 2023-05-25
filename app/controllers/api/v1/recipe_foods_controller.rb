@@ -21,9 +21,11 @@ class Api::V1::RecipeFoodsController < ApplicationController
   end
 
   def edit
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe.user_id = current_user.id
     @recipe_food = RecipeFood.find(params[:id])
     respond_to do |format|
-      format.json { render json: @recipe_food, status: 200 }
+      format.json { render json: [@recipe, @recipe_food], status: 200 }
     end
   end
 
