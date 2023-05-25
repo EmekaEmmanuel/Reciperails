@@ -20,9 +20,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Blograils <a name="about-project"></a>
+# 📖 Reciperails <a name="about-project"></a>
 
-> The Blog app is a classic blog website. A fully functional website that shows the list of posts and empower readers to interact with them by adding comments and liking posts.
+> The app keeps track of all recipes, ingredients, and inventory. It allows to save ingredients, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking it allows you to make them public so anyone can access them.
 
 ## Project Screenshots
 
@@ -56,8 +56,8 @@ In order to run this project you need installed Ruby, Postgres, rails on your lo
 Clone this repository to your local machine:
 
 ```sh
-  git clone https://github.com/EmekaEmmanuel/Blograils.git
-  cd Blograils
+  git clone https://github.com/EmekaEmmanuel/Reciperails.git
+  cd Reciperails
 
 ```
 
@@ -102,7 +102,7 @@ To run the project, execute the following command in terminal:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/EmekaEmmanuel/Blograils/issues).
+Feel free to check the [issues page](https://github.com/EmekaEmmanuel/Reciperails/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
