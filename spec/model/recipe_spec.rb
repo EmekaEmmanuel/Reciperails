@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
   describe 'Tests cases for Recipe model  ' do
-    @user = User.new(name: 'Amalia', email: 'amalia@gmail.com', password: 'amaliatest')
+    @user = User.new(name: 'Emeka Emmannuel', email: "emekaekeohaa@gmail.com", password:"123456" )
     subject do
       Recipe.new(user: @user, name: 'meat', description: 'first recipe added to food',
                  preparation_time: '20min', cooking_time: '30min', public: true)
