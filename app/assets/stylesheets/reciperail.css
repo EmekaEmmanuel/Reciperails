@@ -88,6 +88,10 @@
   cursor: pointer;
 }
 
+.custom_color1 {
+  color: white;
+ }
+
 .custom_btn2 {
   border-radius: 10px;
   border: none;
