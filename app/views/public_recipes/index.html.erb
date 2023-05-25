@@ -10,7 +10,7 @@
             <% @recipes.each do |recipe| %>
             <article class="public_section2_article">
                 <header class="public_section2_article_header">
-                    <h2><%= link_to recipe.name, recipe, class: "td_none custom_btn1" %></a></h2> 
+                    <h2><%= link_to recipe.name, recipe, class: "td_none" %></a></h2> 
                     <p>By: <%= recipe.user.name %></p> 
                      
                 </header>
