@@ -5,7 +5,7 @@ class FoodsController < ApplicationController
 
   # GET /foods or /foods.json
   def index
-    @foods = Food.all.includes(:user).filter { |foo| foo.user_id == current_user.id } 
+    @foods = Food.all.includes(:user).filter { |foo| foo.user_id == current_user.id }
     respond_to do |format|
       format.html
       format.json { render json: @foods, status: 200 }
