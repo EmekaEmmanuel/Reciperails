@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Food, type: :model do
   describe 'Testng food model'
-  subject { Food.new(name: 'Carrot Cake', measurement_unit: 'kg', price: 20, quantity:5) }
+  subject { Food.new(name: 'Carrot Cake', measurement_unit: 'kg', price: 20, quantity: 5) }
   before { subject.save }
 
   it 'name should be between 3 - 10 characters' do
