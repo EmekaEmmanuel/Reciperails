@@ -80,11 +80,10 @@ To run the project, execute the following command in terminal:
 - Twitter: [@emekaekeoha](https://twitter.com/emekaekeoha)
 - LinkedIn: [emeka-ugboaja](https://www.linkedin.com/in/emeka-ugboaja) 
 
-👤 **Innocent N.**
+👤 **Tekhlay B.**
 
-- GitHub: [@chaseknis](https://github.com/Chaseknis)
-- Twitter: [@ChaseToTheWorld](https://twitter.com/chasetotheworld)
-- LinkedIn: [Innocent N.](https://www.linkedin.com/in/innocent-n-200826252/)
+- GitHub: [@Tekhlay](https://github.com/Tekhlay)
+- LinkedIn: [Tekhlay](https://www.linkedin.com/in/tekhlay/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
