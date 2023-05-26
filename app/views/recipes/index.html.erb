@@ -1,0 +1,26 @@
+<main>
+
+        <section class="recipe_section1">
+            <% @recipes.each do |recipe| %>
+            <article class="recipe_section1_article">
+                <header class="recipe_section1_article_header">
+                    <h2><%= link_to recipe.name, recipe_path(recipe), class: "td_none" %></h2>
+                    <button class="custom_btn1">
+                     <%= link_to "Remove", recipe_path(recipe), class: "td_none custom_color1", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete Recipe?" } %> 
+                     </button>
+                </header>
+
+                <div class="recipe_section1_article_div">
+                    <h3>Description of the recipe</h3>
+                    <p><%= recipe.description %></p>  
+                </div>
+            </article>
+            <% end %>
+
+        </section>
+
+        <section class="custom_text_align1 custom_margin1">
+        <button class="custom_btn1"><%= link_to "Add New Recipe", new_recipe_path, class: "custom_font2 td_none custom_color1" %> </button>
+        </section>
+        
+    </main>

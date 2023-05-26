@@ -496,3 +496,245 @@ PS C:\Users\hp\Desktop\microverse_drive\module5\week1\Blograils>
     #     end
     #   end
     # end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   respond_to do |format|
+      format.html
+      format.json { render json: @recipes, status: 200 }
+    end
+
+
+    class UsersController < ApplicationController
+  def index
+    @users = User.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @users, status: 200 }
+    end
+  end
+
+  def show
+    if params[:id] == 'sign_out'
+      sign_out current_user
+      redirect_to new_user_session_path, notice: 'Sign out succesfully' unless @user
+    else
+      @user = User.find_by(id: params[:id])
+      respond_to do |format|
+        format.html { redirect_to users_path, notice: 'User found' unless @user }
+        format.json { render json: @user, status: 200 }
+      end
+    end
+  end
+end
+
+
+
+<% if can? :read, @post %>
+  <%= link_to "View", @post %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+<p style="color: green"><%= notice %></p>
+
+<%= render @recipe %>
+
+<div>
+  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
+  <%= link_to "Back to recipes", recipes_path %>
+
+  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+</div>
+
+
+
+ <%# <tr class="custom_row1">
+                        <th class="custom_font1">Apple</th>
+                        <th class="custom_font1">20g</th>
+                        <th class="custom_font1">$100</th>
+                        <th class="custom_font1 table_flex1">
+                            <button class="custom_btn1">Modify</button>
+                            <button class="custom_btn1">Delete</button>
+                        </th>
+                    </tr> %>
+
+
+
+
+
+
+
+
+
+
+
+                    <p style="color: green"><%= notice %></p>
+
+<h1>Foods</h1>
+
+<div id="foods">
+  <% @foods.each do |food| %>
+    <%= render food %>
+    <p>
+      <%= link_to "Show this food", food %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New food", new_food_path %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%= form_with(model: recipe_food) do |form| %>
+  <% if recipe_food.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(recipe_food.errors.count, "error") %> prohibited this recipe_food from being saved:</h2>
+
+      <ul>
+        <% recipe_food.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :quantity, style: "display: block" %>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div>
+    <%= form.label :recipe_id, style: "display: block" %>
+    <%= form.text_field :recipe_id %>
+  </div>
+
+  <div>
+    <%= form.label :food_id, style: "display: block" %>
+    <%= form.text_field :food_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+
+
+
+   <div>
+    <%= form.label :recipe_id, style: "display: block" %>
+    <%= form.text_field :recipe_id %>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <tbody> 
+                  <% @shopping_list.each do |item| %>
+                        <tr class="active_row custom_row1">
+                            <th class="custom_font1"><%= food.name%></th>
+                            <th class="custom_font1"><%= food.quantity%></th>
+                            <th class="custom_font1"><%= food.price%></th>
+                        </tr>
+                    <% end %>
+                </tbody>
+
+
+
+
+
+
+
+
+
+
+
+class ShoppingListController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index]
+
+  def index
+    @user = current_user
+    @recipe = Recipe.where(user: @user)
+    @ingredients = RecipeFood.where(recipe: @recipe).group_by { |ingredient| ingredient.food.name }
+    @total_price = @ingredients.map do |_food, ingredients|
+      ingredients.map do |ingredient|
+        ingredient.food.price * ingredient.quantity
+      end.sum
+    end.sum
+  end
+end
