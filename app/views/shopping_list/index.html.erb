@@ -9,7 +9,7 @@
 
             <article>
                 <div>
-                    <p>Amount of food items to buy: <%= @ingredients.length%> </p>
+                    <p>Amount of food items to buy: <%= @shopping_list.length%> </p>
                 </div>
                 <div>
                     <p>Total value of food needed: $<%=@total_price%></p>
@@ -26,25 +26,11 @@
                     </tr>
                 </thead>
                 <tbody> 
-                    <% @ingredients.each do |food, ingredient| %>
-                        <tr class="active_row custom_row1">
-                            <th class="custom_font1"><%= food %></th>
-                            <th class="custom_font1">
-                                <% if ingredient.length == 1 %>
-                                    <span><%= ingredient.first.quantity %> <%= ingredient.first.food.measurement_unit %></span>
-                                <% else %>
-                                    <% total_quantity = ingredient.map(&:quantity).sum %>
-                                    <span><%= total_quantity %> <%= ingredient.first.food.measurement_unit %></span>
-                                <% end %>
-                            </th>
-                            <th class="custom_font1">
-                                <% if ingredient.length == 1 %>
-                                    <span>$<%= ingredient.first.quantity.to_i * ingredient.first.food.price %></span>
-                                <% else %>
-                                    <% total_price = ingredient.map{|i| i.quantity.to_i * i.food.price}.sum %>
-                                    <span>$<%= total_price %></span>
-                                <% end %>
-                            </th>
+                  <% @shopping_list.each do |food| %>
+                        <tr class="active_row custom_row1"> 
+                            <th class="custom_font1"><%= food[:name]%></th>
+                            <th class="custom_font1"><%= food[:quantity]%></th>
+                            <th class="custom_font1"><%= food[:price]%></th>
                         </tr>
                     <% end %>
                 </tbody>
